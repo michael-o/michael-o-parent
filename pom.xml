@@ -40,8 +40,8 @@
 	</prerequisites>
 
 	<scm>
-		<connection>http://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
-		<developerConnection>http://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
+		<connection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
+		<developerConnection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
 		<url>http://sourceforge.net/u/michael-o/parent-pom</url>
 	</scm>
 
