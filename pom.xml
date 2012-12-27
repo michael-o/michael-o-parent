@@ -13,7 +13,7 @@
 	<version>1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>SourceForge.net Michael Osipov's Parent POM</name>
+	<name>Michael Osipov's SourceForge.net Parent POM</name>
 	<description>Parent POM for all projects created by Michael Osipov at SourceForge.net</description>
 	<url>http://sourceforge.net/u/michael-o/profile</url>
 	<inceptionYear>2012</inceptionYear>
@@ -36,7 +36,7 @@
 	</developers>
 
 	<prerequisites>
-		<maven>2.2.1</maven>
+		<maven>3.0</maven>
 	</prerequisites>
 
 	<scm>
