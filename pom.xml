@@ -36,13 +36,13 @@
 	</developers>
 
 	<prerequisites>
-		<maven>3.0</maven>
+		<maven>2.2.1</maven>
 	</prerequisites>
 
 	<scm>
 		<connection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
-		<developerConnection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
-		<url>http://sourceforge.net/u/michael-o/parent-pom</url>
+		<developerConnection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
+		<url>http://sourceforge.net/u/michael-o/parent-pom/HEAD/tree/trunk</url>
 	</scm>
 
 	<properties>
@@ -145,4 +145,13 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
