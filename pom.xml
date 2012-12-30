@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -16,6 +17,10 @@
 	<description>Parent POM for all projects created by Michael Osipov at SourceForge.net</description>
 	<url>http://sourceforge.net/u/michael-o/profile</url>
 	<inceptionYear>2012</inceptionYear>
+	<organization>
+		<name>Michael Osipov</name>
+		<url>http://sourceforge.net/u/michael-o/profile</url>
+	</organization>
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -46,29 +51,63 @@
 
 	<properties>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
 	</properties>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${basedir}</directory>
+				<targetPath>META-INF</targetPath>
+				<includes>
+					<include>LICENSE.txt</include>
+				</includes>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.0</version>
-					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
-					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
 					<version>2.2.1</version>
 					<configuration>
-						<excludeResources>true</excludeResources>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<!-- Must be manually added due to http://jira.codehaus.org/browse/MSHARED-270 -->
+								<Implementation-URL>${project.url}</Implementation-URL>
+								<Built-By>${manifest.builtby}</Built-By>
+							</manifestEntries>
+						</archive>
 					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>2.4</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<!-- Must be manually added due to http://jira.codehaus.org/browse/MSHARED-270 -->
+								<Implementation-URL>${project.url}</Implementation-URL>
+								<Built-By>${manifest.builtby}</Built-By>
+								<X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+								<X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+							</manifestEntries>
+						</archive>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
@@ -93,12 +132,46 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>2.9</version>
 					<configuration>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<!-- Must be manually added due to http://jira.codehaus.org/browse/MSHARED-270 -->
+								<Implementation-URL>${project.url}</Implementation-URL>
+								<Built-By>${manifest.builtby}</Built-By>
+							</manifestEntries>
+						</archive>
 						<quiet>true</quiet>
+						<!-- Must be manually added due to http://jira.codehaus.org/browse/MJAVADOC-310 -->
+						<source>${maven.compiler.source}</source>
+						<bottom><![CDATA[Copyright &#169; {inceptionYear}-{currentYear} <a href="${project.organization.url}">${project.organization.name}</a>. All Rights Reserved.]]></bottom>
 					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>2.6</version>
+					<executions>
+					<execution>
+						<id>javadoc-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}</directory>
+									<targetPath>META-INF</targetPath>
+									<includes>
+										<include>LICENSE.txt</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
