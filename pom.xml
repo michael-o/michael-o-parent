@@ -74,6 +74,12 @@
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.0</version>
+					<!-- Must be set explicitly due to http://jira.codehaus.org/browse/MJAVADOC-310 -->
+					<!-- Must be set explicitly due to http://jira.codehaus.org/browse/MPIR-263 -->
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
@@ -143,35 +149,12 @@
 							</manifestEntries>
 						</archive>
 						<quiet>true</quiet>
-						<!-- Must be manually added due to http://jira.codehaus.org/browse/MJAVADOC-310 -->
-						<source>${maven.compiler.source}</source>
 						<bottom><![CDATA[Copyright &#169; {inceptionYear}-{currentYear} <a href="${project.organization.url}">${project.organization.name}</a>. All Rights Reserved.]]></bottom>
 					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>2.6</version>
-					<executions>
-						<execution>
-							<id>javadoc-resources</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
-								<resources>
-									<resource>
-										<directory>${basedir}</directory>
-										<targetPath>META-INF</targetPath>
-										<includes>
-											<include>LICENSE.txt</include>
-										</includes>
-									</resource>
-								</resources>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -222,13 +205,72 @@
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>1.7.1</version>
 				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>javadoc-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}</directory>
+									<targetPath>META-INF</targetPath>
+									<includes>
+										<include>LICENSE.txt</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<!-- Must be rewritten due to http://jira.codehaus.org/browse/MSKINS-72 -->
+					<execution>
+						<id>site-footer-pull-to-right</id>
+						<phase>site</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo>Pulling footer on all pages to the right...</echo>
+								<replace encoding="${project.reporting.outputEncoding}"
+									token="class=&quot;row span12&quot;" value="class=&quot;pull-right&quot;">
+									<fileset dir="${project.build.directory}/site">
+										<include name="*.html" />
+									</fileset>
+								</replace>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
 	<reporting>
 		<plugins>
 			<plugin>
+				<!-- Affecting bugs: 
+					 http://jira.codehaus.org/browse/MPIR-263,
+					 http://jira.codehaus.org/browse/MPIR-264, 
+					 http://jira.codehaus.org/browse/MPIR-265
+				-->
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.6</version>
 			</plugin>
@@ -240,8 +282,8 @@
 			<id>maven-3</id>
 			<activation>
 				<file>
-					<!-- This employs that the basedir expression is only recognized by 
-						Maven 3.x (see MNG-2363) -->
+					<!-- This employs that the basedir expression is only
+						 recognized by Maven 3.x (see MNG-2363) -->
 					<exists>${basedir}</exists>
 				</file>
 			</activation>
