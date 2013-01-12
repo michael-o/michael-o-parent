@@ -251,30 +251,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<!-- Must be rewritten due to http://jira.codehaus.org/browse/MSKINS-72 -->
-					<execution>
-						<id>site-footer-pull-to-right</id>
-						<phase>site</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>Pulling footer on all pages to the right...</echo>
-								<replace encoding="${project.reporting.outputEncoding}"
-									token="class=&quot;row span12&quot;" value="class=&quot;pull-right&quot;">
-									<fileset dir="${project.build.directory}/site">
-										<include name="*.html" />
-									</fileset>
-								</replace>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -292,7 +268,6 @@
 					<reportSet>
 						<!-- Order not retained due to http://jira.codehaus.org/browse/MSITE-675 -->
 						<reports>
-							<report>index</report>
 							<report>summary</report>
 							<report>project-team</report>
 							<report>license</report>
