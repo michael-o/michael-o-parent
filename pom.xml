@@ -70,6 +70,7 @@
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
+		<surefire.version>2.13</surefire.version>
 	</properties>
 
 	<build>
@@ -173,7 +174,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.13</version>
+					<version>${surefire.version}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
@@ -315,6 +316,13 @@
         		<artifactId>findbugs-maven-plugin</artifactId>
         		<version>2.5.2</version>
       		</plugin>
+      		<plugin>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>${surefire.version}</version>
+				<configuration>
+					<alwaysGenerateSurefireReport>false</alwaysGenerateSurefireReport>
+				</configuration>
+			</plugin>
 		</plugins>
 	</reporting>
 
