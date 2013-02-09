@@ -71,7 +71,7 @@
 		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
 		<surefire.version>2.13</surefire.version>
 	</properties>
-	
+
 	<build>
 		<resources>
 			<resource>
@@ -241,9 +241,9 @@
 	<reporting>
 		<plugins>
 			<plugin>
-				<!-- Affecting bugs: 
+				<!-- Affecting bugs:
 					 http://jira.codehaus.org/browse/MPIR-263,
-					 http://jira.codehaus.org/browse/MPIR-264, 
+					 http://jira.codehaus.org/browse/MPIR-264,
 					 http://jira.codehaus.org/browse/MPIR-265
 				-->
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -270,7 +270,7 @@
 				<version>2.3</version>
 				<configuration>
 					<!-- Must be explicitly set due to http://jira.codehaus.org/browse/JXR-63 -->
-					<bottom><![CDATA[Copyright &#169; {inceptionYear}-{currentYear} <a href="${project.organization.url}">${project.organization.name}</a>. All Rights Reserved.]]></bottom>
+					<bottom><![CDATA[Copyright &#169; {inceptionYear}&#x2013;{currentYear} <a href="${project.organization.url}">${project.organization.name}</a>. All Rights Reserved.]]></bottom>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -358,7 +358,7 @@
 								<goals>
 									<goal>single</goal>
 								</goals>
-								<inherited>false</inherited>						
+								<inherited>false</inherited>
 								<configuration>
 									<descriptors>
 										<descriptor>src/assembly/site-resources.xml</descriptor>
