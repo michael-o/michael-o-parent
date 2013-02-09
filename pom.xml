@@ -366,7 +366,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>sourceforge-release</id>
+			<id>sonatype-oss-release</id>
 			<build>
 				<plugins>
 					<plugin>
