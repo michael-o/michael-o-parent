@@ -236,32 +236,6 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<plugins>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>javadoc-resources</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}</directory>
-									<targetPath>META-INF</targetPath>
-									<includes>
-										<include>LICENSE.txt</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
 	</build>
 
 	<reporting>
@@ -384,6 +358,37 @@
 									<descriptors>
 										<descriptor>src/assembly/site-resources.xml</descriptor>
 									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>sourceforge-release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>javadoc-resources</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}</directory>
+											<targetPath>META-INF</targetPath>
+											<includes>
+												<include>LICENSE.txt</include>
+											</includes>
+										</resource>
+									</resources>
 								</configuration>
 							</execution>
 						</executions>
