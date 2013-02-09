@@ -391,32 +391,5 @@
 				</plugins>
 			</build>
 		</profile>
-		<profile>
-			<id>sourceforge-release</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-enforcer-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>enforce-release-maven</id>
-								<goals>
-									<goal>enforce</goal>
-								</goals>
-								<inherited>false</inherited>
-								<configuration>
-									<rules>
-										<requireMavenVersion>
-											<version>(3.0.0,)</version>
-											<message>Cannot perform release with Maven 2.x due to http://jira.codehaus.org/browse/MNG-3959</message>
-										</requireMavenVersion>
-									</rules>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
 	</profiles>
 </project>
