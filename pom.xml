@@ -71,7 +71,7 @@
 		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
 		<surefire.version>2.13</surefire.version>
 	</properties>
-
+	
 	<build>
 		<resources>
 			<resource>
@@ -140,6 +140,7 @@
 					<version>2.4</version>
 					<configuration>
 						<tagNameFormat>@{project.version}</tagNameFormat>
+						<arguments>-Psonatype-oss-release,sourceforge-release</arguments>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -228,6 +229,10 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>wagon-maven-plugin</artifactId>
 					<version>1.0-beta-4</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.2</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -361,6 +366,52 @@
 								<goals>
 									<goal>attach-descriptor</goal>
 								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<!-- Runs only in Maven 3 correctly due to http://jira.codehaus.org/browse/MNG-3959 -->
+							<execution>
+								<id>bundle-site-resources</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<inherited>false</inherited>						
+								<configuration>
+									<descriptors>
+										<descriptor>src/assembly/site-resources.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>sourceforge-release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>enforce-release-maven</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<inherited>false</inherited>
+								<configuration>
+									<rules>
+										<requireMavenVersion>
+											<version>(3.0.0,)</version>
+											<message>Cannot perform release with Maven 2.x due to http://jira.codehaus.org/browse/MNG-3959</message>
+										</requireMavenVersion>
+									</rules>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
