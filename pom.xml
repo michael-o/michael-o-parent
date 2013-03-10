@@ -70,6 +70,7 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
 		<surefire.version>2.14</surefire.version>
+		<javadoc.version>2.9</javadoc.version>
 	</properties>
 
 	<build>
@@ -147,7 +148,7 @@
 					<version>2.4</version>
 					<configuration>
 						<tagNameFormat>@{project.version}</tagNameFormat>
-						<arguments>-Psonatype-oss-release,sourceforge-release</arguments>
+						<arguments>-Pmichael-o-release,sourceforge-release</arguments>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -160,7 +161,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.9</version>
+					<version>${javadoc.version}</version>
 					<configuration>
 						<archive>
 							<manifest>
@@ -283,7 +284,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.8.1</version>
+				<version>${javadoc.version}</version>
 				<configuration>
 					<quiet>true</quiet>
 					<bottom><![CDATA[Copyright &#169; {inceptionYear}&#x2013;{currentYear} <a href="${project.organization.url}">${project.organization.name}</a>. All rights reserved.]]></bottom>
@@ -379,8 +380,9 @@
 				</plugins>
 			</build>
 		</profile>
+		<!-- Superseeds sonatype-oss-release profile because it contains outdated and buggy plugins. -->
 		<profile>
-			<id>sonatype-oss-release</id>
+			<id>michael-o-release</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -407,10 +409,44 @@
 							</execution>
 						</executions>
 					</plugin>
+					<plugin>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
-		<!-- This profile is a placeholer. It avoid duplication of Maven Release plugin
+		<!-- This profile is a placeholer. It avoids duplication of Maven Release plugin
 			configuration. -->
 		<profile>
 			<id>sourceforge-release</id>
