@@ -245,15 +245,22 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<!-- Must be explicitly set due to https://issues.sonatype.org/browse/OSSRH-5623 -->
+				<version>1.2</version>
+				</plugin>
+		</plugins>
 	</build>
 
 	<reporting>
 		<plugins>
 			<plugin>
 				<!-- Affecting bugs:
-					 http://jira.codehaus.org/browse/MPIR-263,
-					 http://jira.codehaus.org/browse/MPIR-264,
-					 http://jira.codehaus.org/browse/MPIR-265
+					http://jira.codehaus.org/browse/MPIR-263,
+					http://jira.codehaus.org/browse/MPIR-264,
+					http://jira.codehaus.org/browse/MPIR-265
 				-->
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.6</version>
@@ -298,18 +305,18 @@
 				</reportSets>
 			</plugin>
 			<plugin>
-        		<artifactId>maven-pmd-plugin</artifactId>
-        		<version>3.0</version>
-        		<configuration>
-        			<targetJdk>${maven.compiler.target}</targetJdk>
-        		</configuration>
-      		</plugin>
-      		<plugin>
-        		<groupId>org.codehaus.mojo</groupId>
-        		<artifactId>findbugs-maven-plugin</artifactId>
-        		<version>2.5.2</version>
-      		</plugin>
-      		<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<targetJdk>${maven.compiler.target}</targetJdk>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.5.2</version>
+			</plugin>
+			<plugin>
 				<artifactId>maven-surefire-report-plugin</artifactId>
 				<version>${surefire.version}</version>
 				<configuration>
@@ -341,7 +348,7 @@
 			<activation>
 				<file>
 					<!-- This employs that the basedir expression is only
-						 recognized by Maven 3.x (see MNG-2363) -->
+						recognized by Maven 3.x (see MNG-2363) -->
 					<exists>${basedir}</exists>
 				</file>
 			</activation>
