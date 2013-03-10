@@ -226,6 +226,8 @@
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>1.4</version>
 				</plugin>
+				<!-- This plugin has a nasty bug: https://jira.codehaus.org/browse/MSHADE-95
+					It completely brakes the release process! Using a locally patched version. -->
 				<plugin>
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>1.7.1</version>
