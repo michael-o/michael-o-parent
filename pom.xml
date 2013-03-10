@@ -403,5 +403,10 @@
 				</plugins>
 			</build>
 		</profile>
+		<!-- This profile is a placeholer. It avoid duplication of Maven Release plugin
+			configuration. -->
+		<profile>
+			<id>sourceforge-release</id>
+		</profile>
 	</profiles>
 </project>
