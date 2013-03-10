@@ -353,7 +353,7 @@
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
 						<executions>
-							<!-- Runs only in Maven 3 correctly due to http://jira.codehaus.org/browse/MNG-3959 -->
+							<!-- Runs correctly in Maven 3 only due to http://jira.codehaus.org/browse/MNG-3959 -->
 							<execution>
 								<id>bundle-site-resources</id>
 								<phase>package</phase>
