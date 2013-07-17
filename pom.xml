@@ -70,7 +70,7 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
 		<surefire.version>2.14.1</surefire.version>
-		<javadoc.version>2.9</javadoc.version>
+		<javadoc.version>2.9.1</javadoc.version>
 	</properties>
 
 	<build>
@@ -174,7 +174,6 @@
 							</manifestEntries>
 						</archive>
 						<quiet>true</quiet>
-						<bottom><![CDATA[Copyright &#169; {inceptionYear}&#x2013;{currentYear} <a href="${project.organization.url}">${project.organization.name}</a>. All rights reserved.]]></bottom>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -295,7 +294,6 @@
 				<version>${javadoc.version}</version>
 				<configuration>
 					<quiet>true</quiet>
-					<bottom><![CDATA[Copyright &#169; {inceptionYear}&#x2013;{currentYear} <a href="${project.organization.url}">${project.organization.name}</a>. All rights reserved.]]></bottom>
 				</configuration>
 				<reportSets>
 					<reportSet>
