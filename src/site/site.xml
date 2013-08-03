@@ -40,7 +40,7 @@
 		<fluidoSkin>
 			<leftColumnClass>span2</leftColumnClass>
 			<bodyColumnClass>span10</bodyColumnClass>
-			<footerStyle>pull-right</footerStyle>
+			<copyrightClass>pull-right</copyrightClass>
 		</fluidoSkin>
 	</custom>
 
