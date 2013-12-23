@@ -54,10 +54,6 @@
 		</developer>
 	</developers>
 
-	<prerequisites>
-		<maven>2.2.1</maven>
-	</prerequisites>
-
 	<scm>
 		<connection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
 		<developerConnection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
@@ -252,7 +248,24 @@
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<!-- Must be explicitly set due to https://issues.sonatype.org/browse/OSSRH-5623 -->
 				<version>${enforcer.version}</version>
-				</plugin>
+				<executions>
+					<execution>
+						<id>enforce-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							
+							<rules>
+								<requireMavenVersion>
+									<version>2.2.1</version>
+									<message>This project requires at least Maven 2.2.1</message>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
