@@ -54,6 +54,10 @@
 		</developer>
 	</developers>
 
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
 	<scm>
 		<connection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
 		<developerConnection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
@@ -235,7 +239,7 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>wagon-maven-plugin</artifactId>
-					<version>1.0-beta-4</version>
+					<version>1.0-beta-5</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-enforcer-plugin</artifactId>
@@ -255,7 +259,6 @@
 							<goal>enforce</goal>
 						</goals>
 						<configuration>
-							
 							<rules>
 								<requireMavenVersion>
 									<version>2.2.1</version>
