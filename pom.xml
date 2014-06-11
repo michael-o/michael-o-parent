@@ -17,12 +17,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
-
 	<groupId>net.sf.michael-o</groupId>
 	<artifactId>michael-o-parent</artifactId>
 	<version>8-SNAPSHOT</version>
@@ -54,24 +48,36 @@
 		</developer>
 	</developers>
 
-	<prerequisites>
-		<maven>2.2.1</maven>
-	</prerequisites>
-
 	<scm>
 		<connection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
 		<developerConnection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
 		<url>http://sourceforge.net/u/michael-o/parent-pom/HEAD/tree/trunk</url>
 	</scm>
+	<distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
-		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
+
+		<maven.version>2.2.1</maven.version>
 		<surefire.version>2.17</surefire.version>
 		<javadoc.version>2.9.1</javadoc.version>
-		<enforcer.version>1.3.1</enforcer.version>
+
+		<manifest.builtby>${project.developers[0].name} (${project.developers[0].id})</manifest.builtby>
 	</properties>
 
 	<build>
@@ -148,6 +154,8 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.5</version>
 					<configuration>
+						<mavenExecutorId>forked-path</mavenExecutorId>
+                        <useReleaseProfile>false</useReleaseProfile>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<arguments>-Pmichael-o-release,sourceforge-release</arguments>
 					</configuration>
@@ -243,15 +251,13 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>${enforcer.version}</version>
+					<version>1.3.1</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
 			<plugin>
 				<artifactId>maven-enforcer-plugin</artifactId>
-				<!-- Must be explicitly set due to https://issues.sonatype.org/browse/OSSRH-5623 -->
-				<version>${enforcer.version}</version>
 				<executions>
 					<execution>
 						<id>enforce-maven</id>
@@ -261,8 +267,8 @@
 						<configuration>
 							<rules>
 								<requireMavenVersion>
-									<version>2.2.1</version>
-									<message>This project requires at least Maven 2.2.1</message>
+									<version>${maven.version}</version>
+									<message>This project requires at least Maven ${maven.version}</message>
 								</requireMavenVersion>
 							</rules>
 						</configuration>
@@ -398,7 +404,6 @@
 				</plugins>
 			</build>
 		</profile>
-		<!-- Superseeds sonatype-oss-release profile because it contains outdated and buggy plugins. -->
 		<profile>
 			<id>michael-o-release</id>
 			<build>
