@@ -24,7 +24,7 @@
 
 	<poweredBy>
 		<logo name="Maven" href="http://maven.apache.org/" title="Built by Apache Maven"
-			alt="Maven" img="http://maven.apache.org/images/logos/build-by-maven-white.png" />
+			alt="Maven" img="http://maven.apache.org/images/logos/maven-feather.png" />
 	</poweredBy>
 
 	<skin>
