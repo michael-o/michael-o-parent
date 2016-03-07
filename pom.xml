@@ -19,7 +19,7 @@
 
 	<groupId>net.sf.michael-o</groupId>
 	<artifactId>michael-o-parent</artifactId>
-	<version>9</version>
+	<version>10-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Michael Osipov's SourceForge.net Parent POM</name>
@@ -53,9 +53,9 @@
 	</prerequisites>
 
 	<scm>
-		<connection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/tags/9</connection>
-		<developerConnection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/tags/9</developerConnection>
-		<url>http://sourceforge.net/u/michael-o/parent-pom/HEAD/tree/tags/9</url>
+		<connection>scm:svn:http://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
+		<developerConnection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
+		<url>http://sourceforge.net/u/michael-o/parent-pom/HEAD/tree/trunk</url>
 	</scm>
 	<distributionManagement>
 		<snapshotRepository>
