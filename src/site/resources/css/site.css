@@ -44,7 +44,7 @@ table.table, table.table th, table.table td {
 dl {
 	background-color: #FFFFCC;
 	border-radius: 4px;
-	/** Applies originally to dt only but should actually apply only here */
+	/* Applies originally to dt only but should actually apply only here */
 	margin-right: 7px;
 	margin-left: 7px;
 	border: 1px dashed #888888;
