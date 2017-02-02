@@ -104,7 +104,7 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.6.0</version>
+					<version>3.6.1</version>
 					<!-- Must be set explicitly due to https://issues.apache.org/jira/browse/MJAVADOC-310 -->
 					<configuration>
 						<source>${maven.compiler.source}</source>
@@ -198,7 +198,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>2.10</version>
+					<version>3.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -234,7 +234,7 @@
 					It completely brakes the release process! Using a locally patched version. -->
 				<plugin>
 					<artifactId>maven-shade-plugin</artifactId>
-					<version>2.4.3</version>
+					<version>3.0.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
