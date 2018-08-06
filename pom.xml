@@ -75,7 +75,7 @@
 
 		<maven.version>3.0.5</maven.version>
 		<surefire.version>2.22.0</surefire.version>
-		<javadoc.version>2.10.4</javadoc.version>
+		<javadoc.version>3.0.1</javadoc.version>
 
 		<manifest.builtBy>${project.developers[0].name} (${project.developers[0].id})</manifest.builtBy>
 	</properties>
@@ -85,7 +85,7 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
-				<version>2.12</version>
+				<version>3.1.0</version>
 			</extension>
 		</extensions>
 		<resources>
@@ -104,7 +104,7 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.6.1</version>
+					<version>3.8.0</version>
 					<!-- Must be set explicitly due to https://issues.apache.org/jira/browse/MJAVADOC-310 -->
 					<configuration>
 						<source>${maven.compiler.source}</source>
@@ -127,7 +127,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.0.2</version>
+					<version>3.1.0</version>
 					<configuration>
 						<archive>
 							<manifest>
@@ -143,7 +143,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
@@ -161,7 +161,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-help-plugin</artifactId>
-					<version>2.2</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
@@ -182,7 +182,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.0.1</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -190,7 +190,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.2.2</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
@@ -198,15 +198,15 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.6</version>
+					<version>3.7.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -234,7 +234,7 @@
 					It completely brakes the release process! Using a locally patched version. -->
 				<plugin>
 					<artifactId>maven-shade-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
@@ -247,7 +247,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>1.4.1</version>
+					<version>3.0.0-M2</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -307,16 +307,16 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.9</version>
+				<version>3.0.0</version>
 				<reportSets>
 					<reportSet>
 						<reports>
 							<report>summary</report>
-							<report>project-team</report>
-							<report>license</report>
+							<report>team</report>
+							<report>licenses</report>
 							<report>scm</report>
-							<report>mailing-list</report>
-							<report>issue-tracking</report>
+							<report>mailing-lists</report>
+							<report>issue-management</report>
 							<report>dependencies</report>
 							<report>dependency-info</report>
 						</reports>
@@ -336,7 +336,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.7</version>
+				<version>3.10</version>
 				<configuration>
 					<targetJdk>${maven.compiler.target}</targetJdk>
 				</configuration>
