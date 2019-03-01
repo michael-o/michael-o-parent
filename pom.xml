@@ -73,11 +73,9 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 
-		<maven.version>3.0.5</maven.version>
+		<maven.version>3.2.5</maven.version>
 		<surefire.version>3.0.0-M3</surefire.version>
 		<javadoc.version>3.0.1</javadoc.version>
-
-		<manifest.builtBy>${project.developers[0].name} (${project.developers[0].id})</manifest.builtBy>
 	</properties>
 
 	<build>
@@ -85,7 +83,7 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
-				<version>3.3.0</version>
+				<version>3.3.2</version>
 			</extension>
 		</extensions>
 		<resources>
@@ -119,11 +117,20 @@
 							<manifest>
 								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							</manifest>
-							<manifestEntries>
-								<Built-By>${manifest.builtBy}</Built-By>
-							</manifestEntries>
 						</archive>
 					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven</groupId>
+							<artifactId>maven-archiver</artifactId>
+							<version>3.4.0</version>
+						</dependency>
+						<dependency>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-archiver</artifactId>
+							<version>4.1.0</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -133,11 +140,20 @@
 							<manifest>
 								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							</manifest>
-							<manifestEntries>
-								<Built-By>${manifest.builtBy}</Built-By>
-							</manifestEntries>
 						</archive>
 					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven</groupId>
+							<artifactId>maven-archiver</artifactId>
+							<version>3.4.0</version>
+						</dependency>
+						<dependency>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-archiver</artifactId>
+							<version>4.1.0</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
@@ -169,12 +185,21 @@
 							<manifest>
 								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							</manifest>
-							<manifestEntries>
-								<Built-By>${manifest.builtBy}</Built-By>
-							</manifestEntries>
 						</archive>
 						<quiet>true</quiet>
 					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven</groupId>
+							<artifactId>maven-archiver</artifactId>
+							<version>3.4.0</version>
+						</dependency>
+						<dependency>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-archiver</artifactId>
+							<version>4.1.0</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
@@ -335,7 +360,7 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>3.1.10</version>
+				<version>3.1.11</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-report-plugin</artifactId>
