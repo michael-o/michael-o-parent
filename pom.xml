@@ -166,7 +166,7 @@
 						<mavenExecutorId>forked-path</mavenExecutorId>
 						<useReleaseProfile>false</useReleaseProfile>
 						<tagNameFormat>@{project.version}</tagNameFormat>
-						<arguments>-Pmichael-o-release,sourceforge-release</arguments>
+						<arguments>-Pmichael-o-release</arguments>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -454,11 +454,6 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile>
-		<!-- This profile is a placeholder. It avoids the duplication of
-			the Maven Release Plugin configuration. -->
-		<profile>
-			<id>sourceforge-release</id>
 		</profile>
 	</profiles>
 </project>
