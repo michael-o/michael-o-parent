@@ -119,18 +119,6 @@
 							</manifest>
 						</archive>
 					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.apache.maven</groupId>
-							<artifactId>maven-archiver</artifactId>
-							<version>3.4.0</version>
-						</dependency>
-						<dependency>
-							<groupId>org.codehaus.plexus</groupId>
-							<artifactId>plexus-archiver</artifactId>
-							<version>4.1.0</version>
-						</dependency>
-					</dependencies>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -175,18 +163,6 @@
 						</archive>
 						<quiet>true</quiet>
 					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.apache.maven</groupId>
-							<artifactId>maven-archiver</artifactId>
-							<version>3.4.0</version>
-						</dependency>
-						<dependency>
-							<groupId>org.codehaus.plexus</groupId>
-							<artifactId>plexus-archiver</artifactId>
-							<version>4.1.0</version>
-						</dependency>
-					</dependencies>
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
