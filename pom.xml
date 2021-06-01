@@ -22,13 +22,13 @@
 	<version>15-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Michael Osipov's SourceForge.net Parent POM</name>
-	<description>Parent POM for all projects created by Michael Osipov at SourceForge.net</description>
-	<url>https://sourceforge.net/u/michael-o/profile</url>
+	<name>Michael Osipov's Parent POM</name>
+	<description>Parent POM for all projects created by Michael Osipov</description>
+	<url>https://github.com/michael-o/michael-o-parent</url>
 	<inceptionYear>2012</inceptionYear>
 	<organization>
 		<name>Michael Osipov</name>
-		<url>https://sourceforge.net/u/michael-o/profile</url>
+		<url>https://github.com/michael-o</url>
 	</organization>
 	<licenses>
 		<license>
@@ -42,16 +42,16 @@
 		<developer>
 			<id>michael-o</id>
 			<name>Michael Osipov</name>
-			<email>michael-o@users.sf.net</email>
-			<url>https://sourceforge.net/u/michael-o/profile</url>
+			<email>1983-01-06@gmx.net</email>
+			<url>https://github.com/michael-o</url>
 			<timezone>Europe/Berlin</timezone>
 		</developer>
 	</developers>
 
 	<scm>
-		<connection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/trunk</connection>
-		<developerConnection>scm:svn:https://svn.code.sf.net/u/michael-o/parent-pom/trunk</developerConnection>
-		<url>https://sourceforge.net/u/michael-o/parent-pom/HEAD/tree/trunk</url>
+		<connection>scm:git:https://github.com/michael-o/michael-o-parent.git</connection>
+		<developerConnection>scm:git:https://github.com/michael-o/michael-o-parent.git</developerConnection>
+		<url>https://github.com/michael-o/michael-o-parent</url>
 	</scm>
 	<distributionManagement>
 		<snapshotRepository>
@@ -79,13 +79,6 @@
 	</properties>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>3.4.1</version>
-			</extension>
-		</extensions>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
