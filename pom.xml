@@ -75,7 +75,7 @@
 
 		<maven.version>3.2.5</maven.version>
 		<surefire.version>3.0.0-M5</surefire.version>
-		<javadoc.version>3.2.0</javadoc.version>
+		<javadoc.version>3.3.0</javadoc.version>
 	</properties>
 
 	<build>
@@ -130,7 +130,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>3.0.0-M4</version>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
 						<tagNameFormat>@{project.version}</tagNameFormat>
@@ -205,10 +205,10 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
-					<version>1.6</version>
+					<version>3.0.1</version>
 				</plugin>
 				<!-- This plugin has a nasty bug: https://jira.codehaus.org/browse/MSHADE-95
-					It completely brakes the release process! Using a locally patched version. -->
+					It completely brakes the release process! -->
 				<plugin>
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>3.2.4</version>
@@ -279,7 +279,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.1.2</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -297,7 +297,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-jxr-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.1.1</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -316,7 +316,7 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.1.4</version>
+				<version>4.2.3</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-report-plugin</artifactId>
