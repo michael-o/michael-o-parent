@@ -19,7 +19,7 @@
 
 	<groupId>net.sf.michael-o</groupId>
 	<artifactId>michael-o-parent</artifactId>
-	<version>15</version>
+	<version>16-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Michael Osipov's Parent POM</name>
