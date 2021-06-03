@@ -314,12 +314,16 @@
 				<version>3.14.0</version>
 				<configuration>
 					<targetJdk>${maven.compiler.target}</targetJdk>
+					<skipEmptyReport>true</skipEmptyReport>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>4.2.3</version>
+				<configuration>
+					<skipEmptyReport>true</skipEmptyReport>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-report-plugin</artifactId>
