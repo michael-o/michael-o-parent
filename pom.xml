@@ -156,6 +156,7 @@
 							</manifest>
 						</archive>
 						<quiet>true</quiet>
+						<notimestamp>true</notimestamp>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -307,6 +308,7 @@
 				<version>${javadoc.version}</version>
 				<configuration>
 					<quiet>true</quiet>
+					<notimestamp>true</notimestamp>
 				</configuration>
 			</plugin>
 			<plugin>
