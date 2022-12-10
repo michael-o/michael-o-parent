@@ -1,5 +1,5 @@
 /*
- * Copyright 2013–2021 Michael Osipov
+ * Copyright 2013–2022 Michael Osipov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,6 @@
  
 .nav-header {
 	text-transform: none;
-}
-/* TODO File tickets in Fluido Skin's/Doxia's Jira for several deficiencies */
-
-div.source {
-	margin-right: 7px;
-}
-
-div.section > div.source {
-	margin-left: 7px;
 }
 
 pre.prettyprint {
@@ -43,8 +34,8 @@ dl {
 	background-color: #FFFFCC;
 	border-radius: 4px;
 	/* Applies originally to dt only but should actually apply only here */
-	margin-right: 7px;
-	margin-left: 7px;
+	margin-right: 10px;
+	margin-left: 10px;
 	border: 1px dashed #888888;
 	padding: 5px;
 }

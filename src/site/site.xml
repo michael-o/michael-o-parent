@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   Copyright 2012–2019 Michael Osipov
+   Copyright 2012–2022 Michael Osipov
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -17,20 +17,25 @@
 <project xmlns="http://maven.apache.org/DECORATION/1.8.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0
-						http://maven.apache.org/xsd/decoration-1.8.0.xsd">
+						http://maven.apache.org/xsd/decoration-1.8.0.xsd"
+	name="${project.name}">
+
+	<bannerLeft>
+		<name>${project.name}</name>
+	</bannerLeft>
 
 	<publishDate position="left" />
 	<version position="left" />
 
 	<poweredBy>
-		<logo name="Maven" href="https://maven.apache.org/" title="Built by Apache Maven"
-			alt="Maven" img="https://maven.apache.org/images/logos/maven-feather.png" />
+		<logo name="Apache Maven" href="https://maven.apache.org/" title="Built by Apache Maven"
+			alt="Built by Apache Maven" img="https://maven.apache.org/images/logos/maven-feather.png" />
 	</poweredBy>
 
 	<skin>
 		<groupId>org.apache.maven.skins</groupId>
 		<artifactId>maven-fluido-skin</artifactId>
-		<version>1.9</version>
+		<version>1.11.1</version>
 	</skin>
 
 	<body>
