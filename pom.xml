@@ -74,9 +74,9 @@
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 
-		<maven.version>3.2.5</maven.version>
-		<surefire.version>3.0.0-M5</surefire.version>
-		<javadoc.version>3.3.0</javadoc.version>
+		<requiredMavenVersion>3.5.4</requiredMavenVersion>
+		<surefirePluginVersion>3.0.0-M7</surefirePluginVersion>
+		<javadocPluginVersion>3.4.1</javadocPluginVersion>
 	</properties>
 
 	<build>
@@ -96,12 +96,7 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
-					<!-- Must be set explicitly due to https://issues.apache.org/jira/browse/MJAVADOC-310 -->
-					<configuration>
-						<source>${maven.compiler.source}</source>
-						<target>${maven.compiler.target}</target>
-					</configuration>
+					<version>3.10.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
@@ -116,7 +111,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.2.2</version>
 					<configuration>
 						<archive>
 							<manifest>
@@ -127,11 +122,11 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.4.2</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>3.0.0-M4</version>
+					<version>3.0.0-M7</version>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
 						<tagNameFormat>@{project.version}</tagNameFormat>
@@ -140,15 +135,15 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>3.0.0-M2</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-help-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>${javadoc.version}</version>
+					<version>${javadocPluginVersion}</version>
 					<configuration>
 						<archive>
 							<manifest>
@@ -161,15 +156,15 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>${surefire.version}</version>
+					<version>${surefirePluginVersion}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
-					<version>3.3.1</version>
+					<version>3.3.2</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
@@ -177,15 +172,15 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.1.2</version>
+					<version>3.4.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>3.1.0</version>
+					<version>3.2.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.9.1</version>
+					<version>3.12.1</version>
 					<configuration>
 						<skipDeploy>true</skipDeploy>
 					</configuration>
@@ -193,7 +188,7 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
-					<version>2.8.1</version>
+					<version>2.10.0</version>
 					<configuration>
 						<generateBackupPoms>false</generateBackupPoms>
 					</configuration>
@@ -202,19 +197,17 @@
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>3.0.1</version>
 				</plugin>
-				<!-- This plugin has a nasty bug: https://jira.codehaus.org/browse/MSHADE-95
-					It completely brakes the release process! -->
 				<plugin>
 					<artifactId>maven-shade-plugin</artifactId>
-					<version>3.2.4</version>
+					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>3.0.0-M3</version>
+					<version>3.0.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-scm-publish-plugin</artifactId>
@@ -239,8 +232,8 @@
 						<configuration>
 							<rules>
 								<requireMavenVersion>
-									<version>${maven.version}</version>
-									<message>This project requires at least Maven ${maven.version}</message>
+									<version>${requiredMavenVersion}</version>
+									<message>This project requires at least Maven ${requiredMavenVersion}</message>
 								</requireMavenVersion>
 							</rules>
 						</configuration>
@@ -283,7 +276,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>3.1.2</version>
+				<version>3.4.1</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -301,11 +294,11 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-jxr-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.3.0</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${javadoc.version}</version>
+				<version>${javadocPluginVersion}</version>
 				<configuration>
 					<quiet>true</quiet>
 					<notimestamp>true</notimestamp>
@@ -313,7 +306,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.14.0</version>
+				<version>3.18.0</version>
 				<configuration>
 					<targetJdk>${maven.compiler.target}</targetJdk>
 					<skipEmptyReport>true</skipEmptyReport>
@@ -322,14 +315,14 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.2.3</version>
+				<version>4.6.0.0</version>
 				<configuration>
 					<skipEmptyReport>true</skipEmptyReport>
 				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>${surefire.version}</version>
+				<version>${surefirePluginVersion}</version>
 				<configuration>
 					<alwaysGenerateSurefireReport>false</alwaysGenerateSurefireReport>
 				</configuration>
