@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   Copyright 2012–2022 Michael Osipov
+   Copyright 2012–2023 Michael Osipov
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -52,8 +52,8 @@
 		<connection>scm:git:https://github.com/michael-o/michael-o-parent.git</connection>
 		<developerConnection>scm:git:https://github.com/michael-o/michael-o-parent.git</developerConnection>
 		<url>https://github.com/michael-o/michael-o-parent</url>
-	  <tag>15</tag>
-  </scm>
+		<tag>15</tag>
+	</scm>
 	<distributionManagement>
 		<snapshotRepository>
 			<id>sonatype-nexus-snapshots</id>
@@ -71,12 +71,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<maven.compiler.source>8</maven.compiler.source>
-		<maven.compiler.target>8</maven.compiler.target>
-
 		<requiredMavenVersion>3.5.4</requiredMavenVersion>
-		<surefirePluginVersion>3.0.0-M7</surefirePluginVersion>
-		<javadocPluginVersion>3.4.1</javadocPluginVersion>
+		<surefirePluginVersion>3.0.0</surefirePluginVersion>
+		<javadocPluginVersion>3.5.0</javadocPluginVersion>
+
+		<project.build.outputTimestamp>2023-04-01T00:00:00Z</project.build.outputTimestamp>
 	</properties>
 
 	<build>
@@ -96,7 +95,7 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.10.1</version>
+					<version>3.11.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
@@ -111,7 +110,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.2.2</version>
+					<version>3.3.0</version>
 					<configuration>
 						<archive>
 							<manifest>
@@ -122,20 +121,22 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.4.2</version>
+					<version>3.5.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>3.0.0-M7</version>
+					<version>3.0.0</version>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
 						<tagNameFormat>@{project.version}</tagNameFormat>
-						<arguments>-Pmichael-o-release</arguments>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<releaseProfiles>michael-o-release</releaseProfiles>
+						<goals>deploy</goals>
 					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
-					<version>3.0.0-M2</version>
+					<version>3.1.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-help-plugin</artifactId>
@@ -156,7 +157,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.3.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -168,11 +169,11 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>3.1.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.4.0</version>
+					<version>3.5.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -180,15 +181,12 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.12.1</version>
-					<configuration>
-						<skipDeploy>true</skipDeploy>
-					</configuration>
+					<version>4.0.0-M6</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
-					<version>2.10.0</version>
+					<version>2.15.0</version>
 					<configuration>
 						<generateBackupPoms>false</generateBackupPoms>
 					</configuration>
@@ -199,7 +197,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-shade-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.4.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
@@ -207,7 +205,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.2.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-scm-publish-plugin</artifactId>
@@ -276,7 +274,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>3.4.1</version>
+				<version>3.4.2</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -306,16 +304,15 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.18.0</version>
+				<version>3.20.0</version>
 				<configuration>
-					<targetJdk>${maven.compiler.target}</targetJdk>
 					<skipEmptyReport>true</skipEmptyReport>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.6.0.0</version>
+				<version>4.7.3.3</version>
 				<configuration>
 					<skipEmptyReport>true</skipEmptyReport>
 				</configuration>
