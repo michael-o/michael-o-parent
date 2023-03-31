@@ -301,6 +301,14 @@
 					<quiet>true</quiet>
 					<notimestamp>true</notimestamp>
 				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc</report>
+							<report>test-javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
