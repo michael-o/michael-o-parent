@@ -73,7 +73,7 @@
 
 		<requiredJavaVersion>1.7</requiredJavaVersion>
 		<requiredMavenVersion>3.5.4</requiredMavenVersion>
-		<surefirePluginVersion>3.0.0</surefirePluginVersion>
+		<surefirePluginVersion>3.1.2</surefirePluginVersion>
 		<javadocPluginVersion>3.5.0</javadocPluginVersion>
 
 		<project.build.outputTimestamp>2023-03-31T12:51:15Z</project.build.outputTimestamp>
@@ -100,7 +100,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>3.2.1</version>
+					<version>3.3.0</version>
 					<configuration>
 						<archive>
 							<manifest>
@@ -122,11 +122,11 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.5.0</version>
+					<version>3.6.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.0.1</version>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
 						<tagNameFormat>@{project.version}</tagNameFormat>
@@ -141,7 +141,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-help-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.4.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
@@ -174,7 +174,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.5.0</version>
+					<version>3.6.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -182,19 +182,19 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>4.0.0-M6</version>
+					<version>4.0.0-M8</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
-					<version>2.15.0</version>
+					<version>2.16.0</version>
 					<configuration>
 						<generateBackupPoms>false</generateBackupPoms>
 					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
-					<version>3.0.1</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-shade-plugin</artifactId>
@@ -206,11 +206,11 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>3.2.1</version>
+					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-scm-publish-plugin</artifactId>
-					<version>3.1.0</version>
+					<version>3.2.1</version>
 					<configuration>
 						<checkoutDirectory>${user.home}/maven-sites/${project.artifactId}</checkoutDirectory>
 						<scmBranch>gh-pages</scmBranch>
@@ -289,7 +289,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>3.4.2</version>
+				<version>3.4.5</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -335,7 +335,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.20.0</version>
+				<version>3.21.0</version>
 				<configuration>
 					<skipEmptyReport>true</skipEmptyReport>
 				</configuration>
@@ -351,7 +351,7 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.7.3.3</version>
+				<version>4.7.3.4</version>
 				<configuration>
 					<skipEmptyReport>true</skipEmptyReport>
 				</configuration>
