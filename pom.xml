@@ -293,6 +293,14 @@
 			<plugin>
 				<artifactId>maven-jxr-plugin</artifactId>
 				<version>3.3.0</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>jxr</report>
+							<report>test-jxr</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -316,6 +324,14 @@
 				<configuration>
 					<skipEmptyReport>true</skipEmptyReport>
 				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>pmd</report>
+							<report>cpd</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
