@@ -293,12 +293,13 @@
 				<reportSets>
 					<reportSet>
 						<reports>
+							<report>index</report>
 							<report>summary</report>
 							<report>team</report>
 							<report>licenses</report>
 							<report>scm</report>
-							<report>mailing-lists</report>
 							<report>issue-management</report>
+							<report>modules</report>
 							<report>dependencies</report>
 							<report>dependency-info</report>
 						</reports>
