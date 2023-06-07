@@ -71,6 +71,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+		<requiredJavaVersion>1.7</requiredJavaVersion>
 		<requiredMavenVersion>3.5.4</requiredMavenVersion>
 		<surefirePluginVersion>3.0.0</surefirePluginVersion>
 		<javadocPluginVersion>3.5.0</javadocPluginVersion>
@@ -222,6 +223,20 @@
 			<plugin>
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<executions>
+					<execution>
+						<id>enforce-java</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireJavaVersion>
+									<version>${requiredJavaVersion}</version>
+									<message>This project requires at least Java ${requiredJavaVersion}</message>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
 					<execution>
 						<id>enforce-maven</id>
 						<goals>
