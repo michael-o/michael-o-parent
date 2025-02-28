@@ -71,7 +71,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<requiredJavaVersion>1.7</requiredJavaVersion>
+		<requiredJavaVersion>8</requiredJavaVersion>
 		<requiredMavenVersion>3.6.3</requiredMavenVersion>
 		<surefirePluginVersion>3.5.2</surefirePluginVersion>
 		<javadocPluginVersion>3.11.2</javadocPluginVersion>
