@@ -73,7 +73,7 @@
 
 		<requiredJavaVersion>8</requiredJavaVersion>
 		<requiredMavenVersion>3.6.3</requiredMavenVersion>
-		<surefirePluginVersion>3.5.2</surefirePluginVersion>
+		<surefirePluginVersion>3.5.3</surefirePluginVersion>
 		<javadocPluginVersion>3.11.2</javadocPluginVersion>
 
 		<project.build.outputTimestamp>2025-03-01T08:43:46Z</project.build.outputTimestamp>
