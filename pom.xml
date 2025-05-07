@@ -217,6 +217,48 @@
 						<tryUpdate>true</tryUpdate>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>com.diffplug.spotless</groupId>
+					<artifactId>spotless-maven-plugin</artifactId>
+					<version>2.44.3</version>
+					<configuration>
+						<java>
+							<palantirJavaFormat>
+								<version>2.63.0</version>
+								<formatJavadoc>true</formatJavadoc>
+							</palantirJavaFormat>
+							<importOrder>
+								<order>java,javax,com,net,org,\#</order>
+							</importOrder>
+							<removeUnusedImports/>
+							<trimTrailingWhitespace/>
+							<endWithNewline/>
+							<formatAnnotations/>
+							<indent>
+								<tabs>true</tabs>
+								<spacesPerTab>4</spacesPerTab>
+							</indent>
+						</java>
+						<pom>
+							<sortPom>
+								<nrOfIndentSpace>-1</nrOfIndentSpace>
+								<expandEmptyElements>false</expandEmptyElements>
+								<quiet>true</quiet>
+							</sortPom>
+						</pom>
+						<upToDateChecking>
+							<enabled>true</enabled>
+						</upToDateChecking>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+							<phase>process-sources</phase>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -435,6 +477,20 @@
 						<configuration>
 							<updateReleaseInfo>true</updateReleaseInfo>
 						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>java11+</id>
+			<activation>
+				<jdk>[11,)</jdk>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.diffplug.spotless</groupId>
+						<artifactId>spotless-maven-plugin</artifactId>
 					</plugin>
 				</plugins>
 			</build>
