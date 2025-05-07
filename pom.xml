@@ -51,20 +51,20 @@
 	<scm>
 		<connection>scm:git:https://github.com/michael-o/michael-o-parent.git</connection>
 		<developerConnection>scm:git:https://github.com/michael-o/michael-o-parent.git</developerConnection>
-		<url>https://github.com/michael-o/michael-o-parent</url>
 		<tag>19</tag>
+		<url>https://github.com/michael-o/michael-o-parent</url>
 	</scm>
 	<distributionManagement>
-		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-		</snapshotRepository>
 		<repository>
 			<id>sonatype-nexus-staging</id>
 			<name>Nexus Release Repository</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 	<properties>
@@ -85,8 +85,8 @@
 				<directory>src/main/resources</directory>
 			</resource>
 			<resource>
-				<directory>${basedir}</directory>
 				<targetPath>META-INF</targetPath>
+				<directory>${basedir}</directory>
 				<includes>
 					<include>LICENSE.txt</include>
 				</includes>
@@ -311,10 +311,10 @@
 				<executions>
 					<execution>
 						<id>bundle-site-resources</id>
-						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
 						</goals>
+						<phase>package</phase>
 						<inherited>false</inherited>
 						<configuration>
 							<descriptors>
@@ -419,10 +419,10 @@
 						<executions>
 							<execution>
 								<id>javadoc-resources</id>
-								<phase>generate-resources</phase>
 								<goals>
 									<goal>copy-resources</goal>
 								</goals>
+								<phase>generate-resources</phase>
 								<configuration>
 									<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
 									<resources>
@@ -465,10 +465,10 @@
 						<executions>
 							<execution>
 								<id>sign-artifacts</id>
-								<phase>verify</phase>
 								<goals>
 									<goal>sign</goal>
 								</goals>
+								<phase>verify</phase>
 							</execution>
 						</executions>
 					</plugin>
